@@ -1,6 +1,8 @@
 async function run() {
-    const { create } = await import('ipfs-http-client');
-    const ipfs = await create();
+    const { createHelia  } = await import('helia');
+    const helia = await createHelia ();
+
+    const { unixfs } = await import('@helia/unixfs')
     
     // we added three attributes, add as many as you want!
     const metadata = {
@@ -22,13 +24,15 @@ async function run() {
             }
             ],
             // update the IPFS CID to be your image CID
-            image: "https://ipfs.io/ipfs/QmQ2wnwaFJ1w42UTywTWpM8RgiqrWwKFR6AMrpyiHPgi3p",
+            image: "https://ipfs.io/ipfs/QmRJ17mNbCeJNrjT5zCDLuJW2Hs5d3Ae2wvkM1TjNmprTP",
             description: "So much PLW3!"
         })
     };
 
-    const result = await ipfs.add(metadata);
-    console.log(result);
+    const fs = unixfs(helia)
+    const cid = await fs.addBytes(metadata)
+
+    console.log(cid);
 
     process.exit(0);
 }
