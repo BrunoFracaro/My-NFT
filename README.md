@@ -1,3 +1,9 @@
-# Mint NFT 
+# My NFT 
 
-Follow the instructions on [Alchemy University](https://university.alchemypreview.com/course/ethereum/md/how-to-mint-nfts) to mint your own NFT!
+Create an ERC-721 smart contract to define a NFT.
+
+Deploy the contract.
+
+Mint the NFT.
+
+Simple project just built to apply the current standards of security on deploying NFTs.
